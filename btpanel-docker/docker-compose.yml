@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  btpanel.service:
+    image: yiyungent/btpanel
+    container_name: btpanel-container
+    restart: always
+    privileged: true # 设置容器的权限为root
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /www/wwwroot:/www/wwwroot
+      - /www/backup:/www/backup
+    network: host # 注意: host 网络只有在 linux 下有效
