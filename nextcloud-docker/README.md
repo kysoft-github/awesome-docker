@@ -3,14 +3,17 @@
 # 简介
 
 
+> `Nextcloud`     
+> - 打包 官方 `full` (所有可选包和 cron 功能的依赖项)    
+> - 打包 `rclone`, 容器内挂载 `外部云存储`
 
 # Usage
 
-## 修改 `docker/rclone/rclone.conf`
+## 1. 修改 `docker/rclone/rclone.conf`
 
 > 填入你的 `rclone.conf` 配置
 
-## 根据需要修改 `docker/Dockerfile`, `docker/supervisord.conf`, `docker/rclone/pcloud-1.sh`
+## 2. 根据需要修改 `docker/Dockerfile`, `docker/supervisord.conf`, `docker/rclone/pcloud-1.sh`
 
 > 示例中只提供了 `pcloud` 外部云存储, 如果需要其它外部云存储, 则按照 `pcloud-1` 复制修改一份即可
 
@@ -18,7 +21,7 @@
 
 
 
-## 修改 `db.env` 
+## 3. 修改 `db.env` 
 
 设置你的 MySQL 密码
 
@@ -27,7 +30,7 @@ MYSQL_ROOT_PASSWORD=
 MYSQL_PASSWORD=
 ```
 
-## 启动
+## 4. 启动
 
 
 ```bash
@@ -47,7 +50,7 @@ docker-compose up -d
 
 > 为了方便, 直接将 rclone 打包到 `Dockerfile` 里, 并在容器启动时, 自动启动挂载 外部云存储
  
-> `nextcloud/Dockerfile` 镜像添加了 `rclone 外部云存储`, 以及 官方的 `full` 示例 (所有可选包和 cron 功能的依赖项)
+> `docker/Dockerfile` 镜像添加了 `rclone 外部云存储`, 以及 官方的 `full` 示例 (所有可选包和 cron 功能的依赖项)
 
 
 
