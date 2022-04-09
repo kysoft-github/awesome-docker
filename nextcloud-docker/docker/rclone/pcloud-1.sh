@@ -15,4 +15,4 @@ mkdir -p /rclone-storage/pcloud-1
 echo "mount..."
 
 # 挂载
-rclone mount pcloud-1: /rclone-storage/pcloud-1 --vfs-cache-mode full
+rclone mount pcloud-1: /rclone-storage/pcloud-1 --vfs-cache-mode full --allow-other
