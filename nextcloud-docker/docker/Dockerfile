@@ -61,7 +61,7 @@ RUN apt-get update; \
     apt-get install -y --no-install-recommends \
         curl \
         fuse \
-    ; \
+    ;
 # Install rclone (support for remote filesystem)
 # fixed: /bin/sh: 1: sudo: not found
 #RUN curl https://rclone.org/install.sh | sudo bash
@@ -74,5 +74,14 @@ RUN mkdir -p /app/rclone
 # rclone pcloud-1
 COPY rclone/pcloud-1.sh /app/rclone/pcloud-1.sh
 # end: rclone
+
+# start: preview pdf
+RUN apt-get update; \
+    apt-get install -y --no-install-recommends \
+        imagemagick \
+        ghostscript \
+    ;
+COPY etc/ImageMagick-6/policy.xml /etc/ImageMagick-6/policy.xml
+# end: preview pdf
 
 CMD ["/usr/bin/supervisord", "-c", "/supervisord.conf"]

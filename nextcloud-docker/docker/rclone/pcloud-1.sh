@@ -12,7 +12,7 @@ fi
 # 确保文件夹存在
 mkdir -p /rclone-storage/pcloud-1
 
-echo "mount..."
+echo "rclone mount pcloud-1 ..."
 
 # 挂载
 rclone mount pcloud-1: /rclone-storage/pcloud-1 --vfs-cache-mode full --allow-other
